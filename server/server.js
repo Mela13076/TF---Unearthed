@@ -1,16 +1,10 @@
 import express from "express";
 import giftsRouter from "./routes/gifts.js";
+import cors from 'cors'
 import './config/dotenv.js'
 
-
-const PORT = process.env.PORT || 3001;
-
 const app = express();
-
-//middleware
-app.use("/public", express.static("./public"));
-
-app.use("/scripts", express.static("./public/scripts"));
+app.use(cors())
 
 // adds the gift  endpoint to the app
 app.use("/gifts", giftsRouter);
@@ -23,6 +17,7 @@ app.get("/", (req, res) => {
     );
 });
 
+const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => {
   console.log(`🚀 Server listening on http://localhost:${PORT}`);
 });

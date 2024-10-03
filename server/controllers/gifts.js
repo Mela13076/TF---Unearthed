@@ -1,17 +1,17 @@
 import { pool } from '../config/database.js'
 
-// const getGiftById = async (req, res) => {
-//   try{
-//     const giftId = req.params.giftId
-//     const selectQuery = `SELECT name, pricePoint, audience, image, description, submittedBy, submittedOn FROM gifts WHERE id = ${giftId}`
-//     const results = await pool.query(selectQuery)
+const getGiftById = async (req, res) => {
+  try{
+    const giftId = req.params.giftId
+    const selectQuery = `SELECT name, pricePoint, audience, image, description, submittedBy, submittedOn FROM gifts WHERE id = ${giftId}`
+    const results = await pool.query(selectQuery)
 
-//     res.status(200).json(results.rows[0])
-//   }catch(error){
-//     res.status(409).json( { error: error.message } )
-//   }
+    res.status(200).json(results.rows[0])
+  }catch(error){
+    res.status(409).json( { error: error.message } )
+  }
 
-// }
+}
 
 const getGifts = async (req, res) => {
   try {
@@ -25,6 +25,6 @@ const getGifts = async (req, res) => {
 }
 
 export default {
-  getGifts
-  //getGiftById
+  getGifts,
+  getGiftById
 }
