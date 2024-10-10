@@ -30,48 +30,48 @@ const CreateGift = () => {
     });
   };
 
-  //   const createGift = (event) => {
-  //     event.preventDefault();
-  //     const options = {
-  //       method: "POST",
-  //       headers: {
-  //         "Content-Type": "application/json",
-  //       },
-  //       body: JSON.stringify(gift),
-  //     };
-  //     const response = fetch("http://localhost:3001/gifts", options);
-  //     window.location = "/";
-  //   };
-
   const createGift = async (event) => {
-    event.preventDefault(); // Prevent form from submitting normally
-
-    // Create the options object with method, headers, and body
+    event.preventDefault();
     const options = {
       method: "POST",
       headers: {
-        "Content-Type": "application/json", // Specify the content type as JSON
+        "Content-Type": "application/json",
       },
-      body: JSON.stringify(gift), // Convert the gift object to a JSON string
+      body: JSON.stringify(gift),
     };
-
-    try {
-      // Make the POST request to the /gifts endpoint with the options
-      const response = await fetch("http://localhost:3001/gifts", options);
-
-      // Check if the request was successful
-      if (response.ok) {
-        // If the request was successful, redirect to the homepage
-        window.location = "/";
-      } else {
-        // Handle errors, if any
-        console.error("Failed to create gift", response.statusText);
-      }
-    } catch (error) {
-      // Handle any unexpected errors
-      console.error("Error creating gift:", error);
-    }
+    const response = await fetch("http://localhost:3001/gifts", options);
+    window.location = "/";
   };
+
+  //   const createGift = async (event) => {
+  //     event.preventDefault(); // Prevent form from submitting normally
+
+  //     // Create the options object with method, headers, and body
+  //     const options = {
+  //       method: "POST",
+  //       headers: {
+  //         "Content-Type": "application/json", // Specify the content type as JSON
+  //       },
+  //       body: JSON.stringify(gift), // Convert the gift object to a JSON string
+  //     };
+
+  //     try {
+  //       // Make the POST request to the /gifts endpoint with the options
+  //       const response = await fetch("http://localhost:3001/gifts", options);
+
+  //       // Check if the request was successful
+  //       if (response.ok) {
+  //         // If the request was successful, redirect to the homepage
+  //         window.location = "/";
+  //       } else {
+  //         // Handle errors, if any
+  //         console.error("Failed to create gift", response.statusText);
+  //       }
+  //     } catch (error) {
+  //       // Handle any unexpected errors
+  //       console.error("Error creating gift:", error);
+  //     }
+  //   };
 
   return (
     <div className="CreateGift">
