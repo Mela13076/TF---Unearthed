@@ -1,10 +1,11 @@
 import express from "express";
 import giftsRouter from "./routes/gifts.js";
-import cors from 'cors'
-import './config/dotenv.js'
+import cors from "cors";
+import "./config/dotenv.js";
 
 const app = express();
-app.use(cors())
+app.use(express.json());
+app.use(cors());
 
 // adds the gift  endpoint to the app
 app.use("/gifts", giftsRouter);

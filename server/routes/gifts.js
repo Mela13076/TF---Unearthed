@@ -1,11 +1,13 @@
 import express from "express";
-import GiftController from '../controllers/gifts.js'
-
+import GiftsController from "../controllers/gifts.js";
 
 // create a express router
 const router = express.Router();
 
-router.get('/', GiftController.getGifts)
-router.get('/:giftId', GiftController.getGiftById)
+router.get("/", GiftsController.getGifts);
+router.get("/:giftId", GiftsController.getGiftById);
+router.post("/", GiftsController.createGift);
+router.delete("/:id", GiftsController.deleteGift);
+router.patch("/:id", GiftsController.updateGift);
 
 export default router;
